@@ -9,7 +9,17 @@
         "lint": "eslint",
         "lint:fix": "eslint --fix",
         "format": "prettier --write .",
-        "format:check": "prettier --check ."
+        "format:check": "prettier --check .",
+        "prepare": "git config --local core.hooksPath .husky"
+    },
+    "lint-staged": {
+        "*.{ts,tsx,js,jsx}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "*.{json,css,md}": [
+            "prettier --write"
+        ]
     },
     "dependencies": {
         "next": "16.2.4",
@@ -24,6 +34,8 @@
         "eslint": "^9",
         "eslint-config-next": "16.2.4",
         "eslint-config-prettier": "^10.1.8",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.4.0",
         "prettier": "^3.8.3",
         "prettier-plugin-tailwindcss": "^0.8.0",
         "tailwindcss": "^4",

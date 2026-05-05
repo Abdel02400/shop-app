@@ -32,6 +32,17 @@ Setup complet (entrée hosts, modules Apache, vhost) → [infra/README.md](../..
 | `pnpm format`       | Formate tout le code via Prettier      |
 | `pnpm format:check` | Vérifie le formatage sans modifier     |
 
+## Pre-commit hook (Husky + lint-staged)
+
+Avant chaque `git commit`, un hook Husky lance **lint-staged** uniquement sur les fichiers modifiés (rapide, ciblé) :
+
+- `*.{ts,tsx,js,jsx}` → `eslint --fix` + `prettier --write`
+- `*.{json,css,md}` → `prettier --write`
+
+Si ESLint trouve une erreur non-fixable, **le commit est bloqué**. Pour bypasser ponctuellement (à éviter) : `git commit --no-verify`.
+
+Le hook est configuré dans `.husky/pre-commit` (à la racine du repo). Le script `prepare` de ce package configure `core.hooksPath` automatiquement après chaque `pnpm install`.
+
 ## Structure
 
 ```
