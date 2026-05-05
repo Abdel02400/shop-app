@@ -11,8 +11,14 @@ Application frontend de [shop-app](../../README.md) — Next.js 16 (App Router) 
 
 ```bash
 pnpm install
-pnpm dev    # dev server sur http://localhost:3000
+pnpm dev    # http://shop-app.local (via Apache) ou http://shop-app.local:3000 (direct)
 ```
+
+## Setup local — domaine de dev
+
+Le script `pnpm dev` bind Next sur `shop-app.local:3000`. Pour profiter de l'URL propre **sans port** (`http://shop-app.local`), un reverse proxy Apache est nécessaire.
+
+Setup complet (entrée hosts, modules Apache, vhost) → [infra/README.md](../../infra/README.md).
 
 ## Commandes
 
