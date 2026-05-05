@@ -16,12 +16,15 @@ pnpm dev    # dev server sur http://localhost:3000
 
 ## Commandes
 
-| Commande | Effet |
-|---|---|
-| `pnpm dev` | Lance le serveur de dev avec Turbopack |
-| `pnpm build` | Build production |
-| `pnpm start` | Lance le build production |
-| `pnpm lint` | Lint via ESLint |
+| Commande            | Effet                                  |
+| ------------------- | -------------------------------------- |
+| `pnpm dev`          | Lance le serveur de dev avec Turbopack |
+| `pnpm build`        | Build production                       |
+| `pnpm start`        | Lance le build production              |
+| `pnpm lint`         | Lint via ESLint                        |
+| `pnpm lint:fix`     | Lint avec auto-fix                     |
+| `pnpm format`       | Formate tout le code via Prettier      |
+| `pnpm format:check` | Vérifie le formatage sans modifier     |
 
 ## Structure
 
