@@ -1,0 +1,23 @@
+{
+    "name": "shop-app",
+    "version": "0.1.0",
+    "private": true,
+    "description": "Plateforme e-commerce monorepo. Boutique curated, dropshipping pur.",
+    "license": "UNLICENSED",
+    "scripts": {
+        "prepare": "husky"
+    },
+    "lint-staged": {
+        "apps/front/**/*.{ts,tsx,js,jsx}": [
+            "pnpm --dir apps/front exec eslint --fix",
+            "pnpm --dir apps/front exec prettier --write"
+        ],
+        "apps/front/**/*.{json,css,md}": [
+            "pnpm --dir apps/front exec prettier --write"
+        ]
+    },
+    "devDependencies": {
+        "husky": "^9.1.7",
+        "lint-staged": "^16.4.0"
+    }
+}

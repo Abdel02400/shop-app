@@ -29,12 +29,22 @@ Chaque sous-dossier a son propre `README.md` avec les commandes et conventions a
 
 ```bash
 git clone <repo>
-cd shop-app/apps/front
-pnpm install
-pnpm dev   # http://shop-app.local (via Apache) ou http://shop-app.local:3000 (direct)
+cd shop-app
+pnpm install                    # installe husky + lint-staged au root et configure les git hooks
+cd apps/front && pnpm install   # installe les deps du front
+pnpm dev                        # http://shop-app.local (via Apache) ou http://shop-app.local:3000 (direct)
 ```
 
 Setup du domaine local (entrée hosts + vhost Apache) documenté dans [infra/README.md](./infra/README.md).
+
+## Pre-commit hooks (Husky)
+
+Configuration au root du monorepo. À chaque `git commit`, le hook lance :
+
+1. `lint-staged` (ESLint + Prettier sur les fichiers staged de `apps/front/**`)
+2. `tsc --noEmit` (type-check TypeScript du front)
+
+Si une vérif échoue, le commit est bloqué. Bypass ponctuel : `git commit --no-verify`.
 
 ## License
 
