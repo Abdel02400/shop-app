@@ -1,0 +1,19 @@
+import { Container } from '@/shared/layout/Container/Container';
+import { StickyBar } from '@/shared/layout/StickyBar/StickyBar';
+
+export const Header = () => (
+    <StickyBar>
+        <Container>
+            <header className="flex h-16 items-center justify-between">
+                {/* Left: Logo + brand (4c.2) */}
+                <div className="text-muted text-sm">Logo</div>
+
+                {/* Center: Nav categories (TBD) */}
+                <nav className="text-muted hidden gap-8 text-sm md:flex">Nav</nav>
+
+                {/* Right: Actions (4c.3 → 4c.5) */}
+                <div className="text-muted flex items-center gap-4 text-sm">Actions</div>
+            </header>
+        </Container>
+    </StickyBar>
+);
