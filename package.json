@@ -5,7 +5,15 @@
     "description": "Plateforme e-commerce monorepo. Boutique curated, dropshipping pur.",
     "license": "UNLICENSED",
     "scripts": {
-        "prepare": "husky"
+        "prepare": "husky",
+        "dev": "pnpm --dir apps/front dev",
+        "build": "pnpm --dir apps/front build",
+        "start": "pnpm --dir apps/front start",
+        "lint": "pnpm --dir apps/front lint",
+        "lint:fix": "pnpm --dir apps/front lint:fix",
+        "format": "pnpm --dir apps/front format",
+        "format:check": "pnpm --dir apps/front format:check",
+        "type-check": "pnpm --dir apps/front exec tsc --noEmit"
     },
     "lint-staged": {
         "apps/front/**/*.{ts,tsx,js,jsx}": [

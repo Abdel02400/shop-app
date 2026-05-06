@@ -30,12 +30,35 @@ Chaque sous-dossier a son propre `README.md` avec les commandes et conventions a
 ```bash
 git clone <repo>
 cd shop-app
-pnpm install                    # installe husky + lint-staged au root et configure les git hooks
-cd apps/front && pnpm install   # installe les deps du front
-pnpm dev                        # http://shop-app.local (via Apache) ou http://shop-app.local:3000 (direct)
+pnpm install                            # installe husky + lint-staged au root et configure les git hooks
+pnpm --dir apps/front install           # installe les deps du front
+pnpm dev                                # http://shop-app.local (via Apache) ou http://shop-app.local:3000 (direct)
 ```
 
 Setup du domaine local (entrée hosts + vhost Apache) documenté dans [infra/README.md](./infra/README.md).
+
+## Scripts root (délégation vers apps/front)
+
+Tous les scripts du front sont exposés à la racine et délèguent à `apps/front` (plus besoin de `cd apps/front`) :
+
+| Commande root | Effet |
+|---|---|
+| `pnpm dev` | Lance le serveur de dev (Turbopack) |
+| `pnpm build` | Build production |
+| `pnpm start` | Lance le build production |
+| `pnpm lint` | Lint via ESLint |
+| `pnpm lint:fix` | Lint avec auto-fix |
+| `pnpm format` | Format Prettier sur tous les fichiers |
+| `pnpm format:check` | Vérifie le formatage |
+| `pnpm type-check` | Type-check TypeScript du front |
+
+## Recommended editor setup
+
+Si tu utilises **VS Code**, ouvre le projet à la racine — VS Code te proposera automatiquement d'installer les extensions recommandées (config dans [.vscode/extensions.json](./.vscode/extensions.json)).
+
+Si tu utilises un autre éditeur, installe manuellement l'équivalent de :
+
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) — autocomplétion + preview des classes Tailwind v4
 
 ## Pre-commit hooks (Husky)
 
