@@ -1,15 +1,14 @@
-import type { Metadata } from 'next';
+import type { PropsWithChildren } from 'react';
+import { inter } from '@/config/fonts';
+import { rootMetadata } from '@/config/metadata';
 import './globals.css';
 
-export const metadata: Metadata = {
-    title: 'shop-app',
-    description: 'Plateforme e-commerce monorepo. Boutique curated, dropshipping pur.',
-};
+export const metadata = rootMetadata;
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-    return (
-        <html lang="fr">
-            <body>{children}</body>
-        </html>
-    );
-}
+const RootLayout = ({ children }: PropsWithChildren) => (
+    <html lang="fr" className={inter.variable}>
+        <body>{children}</body>
+    </html>
+);
+
+export default RootLayout;
