@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 :root {
     --color-background: oklch(100% 0 0);
@@ -11,7 +11,7 @@
     --color-accent: oklch(55.5% 0.3008 306.12);
 }
 
-.dark {
+[data-theme='dark'] {
     --color-background: oklch(14.5% 0 0);
     --color-surface: oklch(20.5% 0 0);
     --color-border: oklch(26.9% 0 0);
