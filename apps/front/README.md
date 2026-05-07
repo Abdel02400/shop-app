@@ -47,7 +47,15 @@ Si une étape échoue, le commit est bloqué. Bypass ponctuel (à éviter) : `gi
 
 ```
 src/
-└── app/        # App Router (layouts, pages, route handlers)
+├── app/                    # App Router (layouts, pages, route handlers)
+├── config/                 # constantes globales (brand, fonts, metadata, themes)
+└── shared/                 # code transverse (components, layout, lib, providers, router)
 ```
 
-Plus de détails s'ajouteront au fil du développement (design system, composants, i18n, etc.).
+Plus de détails s'ajouteront au fil du développement (features, api, queries, schemas, etc.).
+
+## Documentation
+
+Pour les patterns spécifiques avec leurs propres conventions, voir les READMEs imbriqués :
+
+- [Router type-safe](./src/shared/router/README.md) — gestion centralisée des URLs avec validation TypeScript
