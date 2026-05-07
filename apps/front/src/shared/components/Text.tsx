@@ -1,4 +1,4 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ElementType, PropsWithChildren } from 'react';
 
 type TextVariant = 'brand' | 'hero' | 'title' | 'subtitle' | 'body' | 'muted' | 'caption';
 
@@ -12,10 +12,9 @@ const variants: Record<TextVariant, { className: string; as: ElementType }> = {
     caption: { className: 'text-muted text-xs', as: 'span' },
 };
 
-type TextProps = {
+type TextProps = PropsWithChildren<{
     variant?: TextVariant;
-    children: ReactNode;
-};
+}>;
 
 export const Text = ({ variant = 'body', children }: TextProps) => {
     const { className, as: Component } = variants[variant];
