@@ -10,5 +10,5 @@ export const StickyBar = ({ bottom = false, withBackdropBlur = true, children }:
     const position = bottom ? 'bottom-0 border-t' : 'top-0 border-b';
     const background = withBackdropBlur ? 'bg-background/80 backdrop-blur' : 'bg-background';
 
-    return <div className={cn('border-border sticky z-50', position, background)}>{children}</div>;
+    return <div className={cn('sticky z-50', position, background)}>{children}</div>;
 };

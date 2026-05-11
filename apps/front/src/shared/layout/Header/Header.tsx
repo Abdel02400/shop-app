@@ -9,7 +9,7 @@ export const Header = () => (
                 <BrandMark />
 
                 {/* Center: Nav categories (TBD) */}
-                <nav className="text-muted hidden gap-8 text-sm md:flex">Nav</nav>
+                <nav className="text-muted-foreground hidden gap-8 text-sm md:flex">Nav</nav>
 
                 {/* Right: Actions (4c.3 → 4c.5) */}
                 <div className="text-muted flex items-center gap-4 text-sm">Actions</div>
