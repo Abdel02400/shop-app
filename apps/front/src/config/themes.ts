@@ -1,8 +1,4 @@
-const themes = {
-    light: 'light',
-    dark: 'dark',
-} as const;
+export type Theme = 'light' | 'dark';
+export type ThemeMode = Theme | 'system';
 
-type Theme = (typeof themes)[keyof typeof themes];
-
-export const themeList: Theme[] = Object.values(themes);
+export const themeList: Theme[] = ['light', 'dark'];
