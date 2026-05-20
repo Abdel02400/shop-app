@@ -5,7 +5,7 @@ import { Text } from '@/shared/components/Text';
 import { path } from '@/shared/router';
 
 export const BrandMark = () => (
-    <Link href={path('home')} aria-label={`${brand.name} — Accueil`} className="flex items-center gap-2">
+    <Link href={path('home')} aria-label={`${brand.name} — Accueil`} className="focus-ring flex items-center gap-2">
         <Logo />
         <Text variant="brand">{brand.name}</Text>
     </Link>

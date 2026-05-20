@@ -1,6 +1,6 @@
 import type { ElementType, PropsWithChildren } from 'react';
 
-type TextVariant = 'brand' | 'hero' | 'title' | 'subtitle' | 'body' | 'muted' | 'caption';
+type TextVariant = 'brand' | 'hero' | 'title' | 'subtitle' | 'body' | 'muted' | 'caption' | 'link' | 'label';
 
 const variants: Record<TextVariant, { className: string; as: ElementType }> = {
     brand: { className: 'text-brand text-base font-semibold', as: 'span' },
@@ -10,6 +10,8 @@ const variants: Record<TextVariant, { className: string; as: ElementType }> = {
     body: { className: 'text-base', as: 'p' },
     muted: { className: 'text-muted-foreground text-sm', as: 'p' },
     caption: { className: 'text-muted-foreground text-xs', as: 'span' },
+    link: { className: 'text-muted-foreground hover:text-brand group-hover:text-brand text-base font-medium transition-colors', as: 'span' },
+    label: { className: 'text-sm font-medium', as: 'span' },
 };
 
 type TextProps = PropsWithChildren<{
