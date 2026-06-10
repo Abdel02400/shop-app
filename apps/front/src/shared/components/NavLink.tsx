@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import type { PropsWithChildren } from 'react';
 import { Text } from '@/shared/components/Text';
+import { useSameRouteClick } from '@/shared/hooks/useSameRouteClick';
 import { cn } from '@/shared/lib/cn';
 
 type NavLinkProps = PropsWithChildren<{
@@ -14,9 +15,10 @@ type NavLinkProps = PropsWithChildren<{
 export const NavLink = ({ href, children }: NavLinkProps) => {
     const pathname = usePathname();
     const isActive = pathname === href;
+    const handleClick = useSameRouteClick(href);
 
     return (
-        <Link href={href} aria-current={isActive ? 'page' : undefined} className={cn('focus-ring group flex items-center px-3', isActive && 'bg-brand/15')}>
+        <Link href={href} onClick={handleClick} aria-current={isActive ? 'page' : undefined} className={cn('focus-ring group flex items-center px-3', isActive && 'bg-brand/15')}>
             <Text variant={isActive ? 'linkActive' : 'link'}>{children}</Text>
         </Link>
     );

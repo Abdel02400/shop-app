@@ -7,7 +7,7 @@ import './globals.css';
 export const metadata = rootMetadata;
 
 const RootLayout = ({ children }: PropsWithChildren) => (
-    <html lang="fr" className={inter.variable} suppressHydrationWarning>
+    <html lang="fr" className={`${inter.variable} scroll-smooth`} suppressHydrationWarning>
         <body>
             <AppProviders>{children}</AppProviders>
         </body>
