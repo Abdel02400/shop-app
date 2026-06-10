@@ -7,7 +7,7 @@ import { HeaderNav } from './HeaderNav/HeaderNav';
 export const Header = () => (
     <StickyBar>
         <Container>
-            <header className="flex h-16 items-stretch justify-between py-3">
+            <header className="flex h-(--header-height) items-stretch justify-between py-3">
                 <BrandMark />
                 <HeaderNav />
                 <HeaderActions />

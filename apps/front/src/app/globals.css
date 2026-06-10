@@ -40,6 +40,8 @@
 
     --brand: oklch(55.5% 0.3008 306.12);
     --brand-strong: color-mix(in oklch, var(--brand) 88%, black);
+
+    --header-height: 4rem;
 }
 
 [data-theme='dark'] {

@@ -1,9 +1,14 @@
-import { brand } from '@/config/brand';
+import { homeAnchors } from '@/features/home/anchors';
+import { Hero } from '@/features/home/components/Hero/Hero';
+import { Text } from '@/shared/components/Text';
 
 const Home = () => (
-    <div className="p-8">
-        <h1 className="text-2xl">{brand.name}</h1>
-    </div>
+    <>
+        <Hero />
+        <section id={homeAnchors.products} className="mx-auto max-w-7xl px-4 py-16">
+            <Text variant="title">Articles</Text>
+        </section>
+    </>
 );
 
 export default Home;
