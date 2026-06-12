@@ -7,7 +7,7 @@ import { FlagFR } from '@/shared/components/flags/FlagFR';
 import { FlagGB } from '@/shared/components/flags/FlagGB';
 import { DropdownMenuItem, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger } from '@/shared/components/ui/dropdown-menu';
 import { IconLabel } from '@/shared/layout/Header/HeaderActions/HamburgerMenu/IconLabel/IconLabel';
-import { menuEntryVariants } from '@/shared/layout/Header/HeaderActions/HamburgerMenu/menuEntryVariants';
+import { menuEntryVariants } from '@/shared/layout/Header/HeaderActions/menuEntryVariants';
 
 const languageItems = [
     { value: languages.fr, label: 'Français', flag: FlagFR },

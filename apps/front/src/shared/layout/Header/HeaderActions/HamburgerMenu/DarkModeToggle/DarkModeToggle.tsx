@@ -6,7 +6,7 @@ import { themes } from '@/config/themes';
 import { DropdownMenuItem } from '@/shared/components/ui/dropdown-menu';
 import { Switch } from '@/shared/components/ui/switch';
 import { IconLabel } from '@/shared/layout/Header/HeaderActions/HamburgerMenu/IconLabel/IconLabel';
-import { menuEntryVariants } from '@/shared/layout/Header/HeaderActions/HamburgerMenu/menuEntryVariants';
+import { menuEntryVariants } from '@/shared/layout/Header/HeaderActions/menuEntryVariants';
 
 export const DarkModeToggle = () => {
     const { theme, setTheme } = useTheme();
