@@ -10,12 +10,19 @@ const buttonVariants = cva('cursor-pointer', {
             secondary: 'text-brand hover:bg-muted hover:text-brand dark:hover:bg-muted',
             ghost: 'hover:bg-muted dark:hover:bg-muted',
         },
+        size: {
+            default: '',
+            sm: '',
+            lg: 'h-11 px-6',
+            icon: '',
+        },
     },
     defaultVariants: {
         variant: 'primary',
+        size: 'default',
     },
 });
 
-type ButtonProps = Omit<ComponentProps<typeof UiButton>, 'variant'> & VariantProps<typeof buttonVariants>;
+type ButtonProps = Omit<ComponentProps<typeof UiButton>, 'variant' | 'size'> & VariantProps<typeof buttonVariants>;
 
-export const Button = ({ variant, className, ...props }: ButtonProps) => <UiButton variant="ghost" className={cn(buttonVariants({ variant }), className)} {...props} />;
+export const Button = ({ variant, size, className, ...props }: ButtonProps) => <UiButton variant="ghost" size={size ?? 'default'} className={cn(buttonVariants({ variant, size }), className)} {...props} />;

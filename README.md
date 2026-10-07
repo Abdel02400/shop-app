@@ -1,74 +1,140 @@
-# shop-app
+# Shop App
 
-Plateforme e-commerce monorepo. Boutique curated, dropshipping pur.
+> Plateforme e-commerce développée sous forme de monorepo, avec un frontend Next.js / React / TypeScript.
 
-## Statut
+## 🎯 Objectif
 
-🚧 En cours de développement. Bootstrap en place, design system et features à venir.
+Shop App est un projet personnel destiné à expérimenter la conception d'une application e-commerce moderne et l'organisation d'un projet frontend à l'échelle d'un monorepo.
 
-## Structure
+Le projet est actuellement en cours de développement.
 
-```
+## 🏗️ Architecture
+
+Le projet est organisé en monorepo afin de centraliser les différentes parties de l'application et les outils communs.
+
+```text
 shop-app/
 ├── apps/
-│   └── front/   # Next.js 16 — App Router (voir apps/front/README.md)
-├── docs/        # spécifications, parcours, design (à venir)
-└── infra/       # configs locales et déploiement (voir infra/README.md)
+│   └── front/
+│       └── Next.js / React
+├── docs/
+└── infra/
 ```
 
-Chaque sous-dossier a son propre `README.md` avec les commandes et conventions associées.
+Le frontend utilise l'App Router de Next.js.
 
-## Tech stack
+## 🛠️ Stack technique
 
-- **Frontend** : Next.js 16 + React 19 + Tailwind CSS v4 + TypeScript — détails dans [apps/front/README.md](./apps/front/README.md)
-- **Backend** : Symfony 7 + API Platform 4 (à venir)
-- **Database** : PostgreSQL 17 managé OVH (à venir)
-- **Hébergement** : OVH (2 VPS) + Cloudflare CDN
+### Frontend
 
-## Quick start
+* Next.js 16
+* React 19
+* TypeScript
+* Tailwind CSS 4
+* shadcn/ui
+* Lucide React
+
+### Qualité et tooling
+
+* ESLint
+* Prettier
+* TypeScript strict checking
+* Husky
+* lint-staged
+* pnpm
+
+### Validation
+
+* Zod
+
+## 🧩 Frontend
+
+Le frontend est construit avec Next.js App Router.
+
+L'organisation actuelle distingue notamment :
+
+```text
+src/
+├── app/
+├── config/
+└── shared/
+```
+
+Le dossier `shared` regroupe les éléments transverses de l'application : composants, layout, providers, utilitaires et gestion du routage.
+
+## 🔒 Qualité du code
+
+Des contrôles sont exécutés automatiquement lors des commits.
+
+Le hook Git vérifie notamment :
+
+* ESLint ;
+* Prettier ;
+* le typage TypeScript.
+
+Un commit est bloqué lorsqu'une des vérifications échoue.
+
+Les scripts disponibles sont notamment :
 
 ```bash
-git clone <repo>
-cd shop-app
-pnpm install                            # installe husky + lint-staged au root et configure les git hooks
-pnpm --dir apps/front install           # installe les deps du front
-pnpm dev                                # http://shop-app.local (via Apache) ou http://shop-app.local:3000 (direct)
+pnpm lint
+pnpm format:check
+pnpm type-check
+pnpm build
 ```
 
-Setup du domaine local (entrée hosts + vhost Apache) documenté dans [infra/README.md](./infra/README.md).
+## 🚀 Installation
 
-## Scripts root (délégation vers apps/front)
+### Prérequis
 
-Tous les scripts du front sont exposés à la racine et délèguent à `apps/front` (plus besoin de `cd apps/front`) :
+* Node.js
+* pnpm
 
-| Commande root | Effet |
-|---|---|
-| `pnpm dev` | Lance le serveur de dev (Turbopack) |
-| `pnpm build` | Build production |
-| `pnpm start` | Lance le build production |
-| `pnpm lint` | Lint via ESLint |
-| `pnpm lint:fix` | Lint avec auto-fix |
-| `pnpm format` | Format Prettier sur tous les fichiers |
-| `pnpm format:check` | Vérifie le formatage |
-| `pnpm type-check` | Type-check TypeScript du front |
+### Installation
 
-## Recommended editor setup
+```bash
+git clone https://github.com/Abdel02400/shop-app.git
+cd shop-app
+pnpm install
+```
 
-Si tu utilises **VS Code**, ouvre le projet à la racine — VS Code te proposera automatiquement d'installer les extensions recommandées (config dans [.vscode/extensions.json](./.vscode/extensions.json)).
+### Développement
 
-Si tu utilises un autre éditeur, installe manuellement l'équivalent de :
+```bash
+pnpm dev
+```
 
-- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) — autocomplétion + preview des classes Tailwind v4
+Le frontend est alors disponible sur :
 
-## Pre-commit hooks (Husky)
+```text
+http://shop-app.local:3000
+```
 
-Configuration au root du monorepo. À chaque `git commit`, le hook lance :
+Une configuration Apache permet également d'utiliser :
 
-1. `lint-staged` (ESLint + Prettier sur les fichiers staged de `apps/front/**`)
-2. `tsc --noEmit` (type-check TypeScript du front)
+```text
+http://shop-app.local
+```
 
-Si une vérif échoue, le commit est bloqué. Bypass ponctuel : `git commit --no-verify`.
+La configuration correspondante est documentée dans `infra/README.md`.
 
-## License
+## 🚧 État du projet
 
-Privé.
+Le projet est actuellement en cours de développement.
+
+Le frontend constitue la première partie du projet. Le backend Symfony / API Platform et les fonctionnalités e-commerce plus avancées sont prévus dans les prochaines étapes.
+
+## 🎓 Objectifs techniques
+
+Ce projet me permet notamment d'expérimenter :
+
+* Next.js App Router ;
+* React ;
+* TypeScript ;
+* architecture frontend ;
+* monorepo ;
+* design system ;
+* composants réutilisables ;
+* validation typée ;
+* qualité et automatisation des contrôles ;
+* Git hooks et automatisation du workflow de développement.
